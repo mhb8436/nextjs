@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 기초 학습
 
-## Getting Started
+이 프로젝트는 Next.js의 기본 개념과 기능을 학습하기 위한 예제입니다.
 
-First, run the development server:
+## 설치 방법
 
 ```bash
+# 프로젝트 클론
+git clone [repository-url]
+cd 08_nextjs_basics
+
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 학습 내용
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js 프로젝트 구조
+- 페이지 라우팅
+- 정적/동적 라우팅
+- 레이아웃과 컴포넌트
+- 메타데이터 관리
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 주요 파일 구조
 
-## Learn More
+- `src/app/`: App Router 기반 페이지
+- `src/components/`: 재사용 가능한 컴포넌트
+- `public/`: 정적 파일
+- `next.config.ts`: Next.js 설정
+- `tsconfig.json`: TypeScript 설정
 
-To learn more about Next.js, take a look at the following resources:
+## 실행 방법
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+개발 서버가 실행되면 기본적으로 http://localhost:3000 에서 애플리케이션을 확인할 수 있습니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 추가 학습 자료
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js 공식 문서](https://nextjs.org/docs)
+- [Next.js App Router 가이드](https://nextjs.org/docs/app/building-your-application/routing)
+- [Next.js TypeScript 가이드](https://nextjs.org/docs/basic-features/typescript)
