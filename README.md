@@ -106,5 +106,5 @@ MIT License
 
 ## 연락처
 
-- 이메일: [your-email]
-- 깃허브: [your-github]
+- 이메일: [mhb8436@gmail.com](mailto:mhb8436@gmail.com)
+- 깃허브: [mhb8436](https://github.com/mhb8436)
