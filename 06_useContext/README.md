@@ -1,14 +1,19 @@
-# useContext 훅 학습
+# useContext Hook 학습
 
-이 프로젝트는 React의 useContext 훅을 사용한 전역 상태 관리 방법을 학습하기 위한 예제입니다.
+## 프로젝트 개요
 
-## 설치 방법
+React의 useContext Hook을 활용한 전역 상태 관리를 학습하는 프로젝트입니다.
+
+## 주요 학습 내용
+
+- Context API 기본 사용법
+- useContext Hook 활용
+- 전역 상태 관리
+- 테마 관리 구현
+
+## 실행 방법
 
 ```bash
-# 프로젝트 클론
-git clone [repository-url]
-cd 06_useContext
-
 # 의존성 설치
 npm install
 
@@ -16,24 +21,62 @@ npm install
 npm run dev
 ```
 
-## 학습 내용
+## 프로젝트 구조
 
-- Context API의 기본 개념
-- useContext 훅 사용법
-- Context Provider 설정
-- 전역 상태 관리
-- 성능 최적화
+```
+src/
+├── contexts/
+│   ├── ThemeContext.tsx  # 테마 관리 컨텍스트
+│   └── UserContext.tsx   # 유저 관리 컨텍스트
+├── components/
+│   ├── ThemeToggle.tsx   # 테마 전환 컴포넌트
+│   └── UserProfile.tsx   # 유저 정보 컴포넌트
+├── App.tsx
+└── main.tsx
+```
 
-## 주요 파일 구조
+## 예제 코드
 
-- `src/App.tsx`: 메인 애플리케이션 컴포넌트
-- `src/contexts/`: Context 정의 파일들
-- `src/components/`: 예제 컴포넌트들
-- `src/main.tsx`: 애플리케이션 진입점
+```tsx
+// contexts/ThemeContext.tsx
+import { createContext, useContext, useState } from "react";
 
-## 실행 방법
+type Theme = "light" | "dark";
 
-개발 서버가 실행되면 기본적으로 http://localhost:5173 에서 애플리케이션을 확인할 수 있습니다.
+interface ThemeContextType {
+  theme: Theme;
+  toggleTheme: () => void;
+}
+
+const ThemeContext = createContext<ThemeContextType | null>(null);
+
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  const [theme, setTheme] = useState<Theme>("light");
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) throw new Error("useTheme must be used within ThemeProvider");
+  return context;
+};
+```
+
+## 학습 포인트
+
+1. Context API의 활용 사례
+2. Provider 패턴 이해
+3. TypeScript와 Context 활용
+4. 컨텍스트 구조화
 
 ## 추가 학습 자료
 

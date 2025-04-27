@@ -1,6 +1,74 @@
-# useEffect 훅 학습
+# useEffect Hook 학습
 
-이 프로젝트는 React의 useEffect 훅을 사용한 사이드 이펙트 관리 방법을 학습하기 위한 예제입니다.
+## 프로젝트 개요
+React의 useEffect Hook을 활용한 생명주기 관리와 사이드 이펙트 처리를 학습하는 프로젝트입니다.
+
+## 주요 학습 내용
+- useEffect Hook 기본 사용법
+- 의존성 배열 활용
+- Clean-up 함수 처리
+- API 호출 및 데이터 페칭
+
+## 실행 방법
+```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+```
+
+## 프로젝트 구조
+```
+src/
+├── components/
+│   ├── DataFetcher.tsx  # API 호출 예제
+│   ├── WindowSize.tsx   # 이벤트 리스너 예제
+│   └── Timer.tsx       # 타이머 예제
+├── App.tsx
+└── main.tsx
+```
+
+## 예제 코드
+```tsx
+// WindowSize.tsx
+import { useState, useEffect } from 'react';
+
+export const WindowSize = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <div>
+      <p>Width: {windowSize.width}px</p>
+      <p>Height: {windowSize.height}px</p>
+    </div>
+  );
+};
+```
+
+## 학습 포인트
+1. 컴포넌트 생명주기 관리
+2. 사이드 이펙트 처리
+3. Clean-up 함수 활용
+4. 의존성 배열의 중요성
 
 ## 프로젝트 생성 방법
 
@@ -31,24 +99,6 @@ npm install
 # 개발 서버 실행
 npm run dev
 ```
-
-## 학습 내용
-
-- useEffect 훅의 기본 사용법
-- 의존성 배열의 활용
-- 클린업 함수
-- 마운트/언마운트 처리
-- API 호출과 데이터 페칭
-
-## 주요 파일 구조
-
-- `src/App.tsx`: 메인 애플리케이션 컴포넌트
-- `src/components/`: 예제 컴포넌트들
-- `src/main.tsx`: 애플리케이션 진입점
-
-## 실행 방법
-
-개발 서버가 실행되면 기본적으로 http://localhost:5173 에서 애플리케이션을 확인할 수 있습니다.
 
 ## 추가 학습 자료
 

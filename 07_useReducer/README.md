@@ -1,14 +1,16 @@
-# useReducer 훅 학습
+# useReducer Hook 학습
 
-이 프로젝트는 React의 useReducer 훅을 사용한 복잡한 상태 관리 방법을 학습하기 위한 예제입니다.
+## 프로젝트 개요
+React의 useReducer Hook을 활용한 복잡한 상태 관리를 학습하는 프로젝트입니다.
 
-## 설치 방법
+## 주요 학습 내용
+- useReducer Hook 기본 사용법
+- Reducer 패턴 이해
+- Action과 State 관리
+- 복잡한 상태 관리
 
+## 실행 방법
 ```bash
-# 프로젝트 클론
-git clone [repository-url]
-cd 07_useReducer
-
 # 의존성 설치
 npm install
 
@@ -16,25 +18,63 @@ npm install
 npm run dev
 ```
 
-## 학습 내용
+## 프로젝트 구조
+```
+src/
+├── reducers/
+│   ├── todoReducer.ts   # Todo 상태 관리
+│   └── cartReducer.ts   # 장바구니 상태 관리
+├── components/
+│   ├── TodoList.tsx     # Todo 리스트 컴포넌트
+│   └── ShoppingCart.tsx # 장바구니 컴포넌트
+├── App.tsx
+└── main.tsx
+```
 
-- useReducer 훅의 기본 개념
-- Reducer 함수 작성
-- 액션 타입 정의
-- 상태 업데이트 로직
-- Context와 함께 사용하기
+## 예제 코드
+```tsx
+// reducers/todoReducer.ts
+type Todo = {
+  id: number;
+  text: string;
+  completed: boolean;
+};
 
-## 주요 파일 구조
+type TodoAction =
+  | { type: 'ADD_TODO'; payload: string }
+  | { type: 'TOGGLE_TODO'; payload: number }
+  | { type: 'REMOVE_TODO'; payload: number };
 
-- `src/App.tsx`: 메인 애플리케이션 컴포넌트
-- `src/reducers/`: Reducer 함수 정의
-- `src/actions/`: 액션 타입과 생성자
-- `src/components/`: 예제 컴포넌트들
-- `src/main.tsx`: 애플리케이션 진입점
+export const todoReducer = (state: Todo[], action: TodoAction): Todo[] => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return [
+        ...state,
+        {
+          id: Date.now(),
+          text: action.payload,
+          completed: false
+        }
+      ];
+    case 'TOGGLE_TODO':
+      return state.map(todo =>
+        todo.id === action.payload
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      );
+    case 'REMOVE_TODO':
+      return state.filter(todo => todo.id !== action.payload);
+    default:
+      return state;
+  }
+};
+```
 
-## 실행 방법
-
-개발 서버가 실행되면 기본적으로 http://localhost:5173 에서 애플리케이션을 확인할 수 있습니다.
+## 학습 포인트
+1. Reducer 패턴의 이해
+2. Action과 State 관계
+3. TypeScript와 useReducer 활용
+4. 복잡한 상태 관리 패턴
 
 ## 추가 학습 자료
 

@@ -1,14 +1,19 @@
-# useRef 훅 학습
+# useRef Hook 학습
 
-이 프로젝트는 React의 useRef 훅을 사용한 DOM 요소 참조와 값 유지 방법을 학습하기 위한 예제입니다.
+## 프로젝트 개요
 
-## 설치 방법
+React의 useRef Hook을 활용한 DOM 조작과 값 유지를 학습하는 프로젝트입니다.
+
+## 주요 학습 내용
+
+- useRef Hook 기본 사용법
+- DOM 요소 접근
+- 이전 값 유지
+- 포커스 관리
+
+## 실행 방법
 
 ```bash
-# 프로젝트 클론
-git clone [repository-url]
-cd 05_useRef
-
 # 의존성 설치
 npm install
 
@@ -16,23 +21,47 @@ npm install
 npm run dev
 ```
 
-## 학습 내용
+## 프로젝트 구조
 
-- useRef 훅의 기본 사용법
-- DOM 요소 참조
-- 이전 값 유지
-- 불필요한 리렌더링 방지
-- 타이머와 인터벌 관리
+```
+src/
+├── components/
+│   ├── FocusInput.tsx   # 포커스 관리 예제
+│   ├── StopWatch.tsx    # 값 유지 예제
+│   └── VideoPlayer.tsx  # DOM 조작 예제
+├── App.tsx
+└── main.tsx
+```
 
-## 주요 파일 구조
+## 예제 코드
 
-- `src/App.tsx`: 메인 애플리케이션 컴포넌트
-- `src/components/`: 예제 컴포넌트들
-- `src/main.tsx`: 애플리케이션 진입점
+```tsx
+// FocusInput.tsx
+import { useRef, useEffect } from "react";
 
-## 실행 방법
+export const FocusInput = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
 
-개발 서버가 실행되면 기본적으로 http://localhost:5173 에서 애플리케이션을 확인할 수 있습니다.
+  useEffect(() => {
+    // 컴포넌트 마운트 시 자동 포커스
+    inputRef.current?.focus();
+  }, []);
+
+  return (
+    <div>
+      <input ref={inputRef} type="text" placeholder="자동 포커스 입력란" />
+      <button onClick={() => inputRef.current?.focus()}>포커스</button>
+    </div>
+  );
+};
+```
+
+## 학습 포인트
+
+1. useRef의 다양한 활용 사례
+2. DOM 조작과 값 유지의 차이
+3. TypeScript와 useRef 활용
+4. 렌더링 없는 값 관리
 
 ## 추가 학습 자료
 

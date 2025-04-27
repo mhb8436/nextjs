@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 데이터 페칭
 
-## Getting Started
+## 프로젝트 개요
+Next.js의 다양한 데이터 페칭 방법과 캐싱 전략을 학습하는 프로젝트입니다.
 
-First, run the development server:
+## 주요 학습 내용
+- Server Components에서 데이터 페칭
+- Client Components에서 데이터 페칭
+- 정적/동적 데이터 페칭
+- 캐싱 전략
 
+## 실행 방법
 ```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 프로젝트 구조
+```
+src/
+├── app/
+│   ├── posts/
+│   │   ├── page.tsx      # 정적 페칭 예제
+│   │   └── [id]/        # 동적 페칭 예제
+│   └── api/
+│       └── posts/       # API 라우트
+├── components/
+│   ├── PostList.tsx    # 서버 컴포넌트
+│   └── PostForm.tsx    # 클라이언트 컴포넌트
+└── lib/
+    └── api.ts         # API 클라이언트
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 예제 코드
+```tsx
+// app/posts/page.tsx
+async function getPosts() {
+  const res = await fetch('https://api.example.com/posts', {
+    next: { revalidate: 3600 } // 1시간마다 재검증
+  });
+  if (!res.ok) throw new Error('Failed to fetch posts');
+  return res.json();
+}
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+export default async function PostsPage() {
+  const posts = await getPosts();
 
-## Learn More
+  return (
+    <div>
+      <h1>게시물 목록</h1>
+      <ul>
+        {posts.map(post => (
+          <li key={post.id}>
+            <h2>{post.title}</h2>
+            <p>{post.excerpt}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 학습 포인트
+1. 서버/클라이언트 컴포넌트 차이
+2. 다양한 데이터 페칭 방법
+3. 캐싱과 재검증 전략
+4. 에러 처리와 로딩 상태

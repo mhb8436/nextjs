@@ -1,6 +1,57 @@
-# useState 훅 학습
+# useState Hook 학습
 
-이 프로젝트는 React의 useState 훅을 사용한 상태 관리 방법을 학습하기 위한 예제입니다.
+## 프로젝트 개요
+React의 useState Hook을 활용한 상태 관리를 학습하는 프로젝트입니다.
+
+## 주요 학습 내용
+- useState Hook 사용법
+- 상태 갱신 방법
+- 객체 상태 관리
+- 배열 상태 관리
+
+## 실행 방법
+```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+```
+
+## 프로젝트 구조
+```
+src/
+├── components/
+│   ├── Counter.tsx     # 단순 상태 관리 예제
+│   ├── TodoList.tsx    # 배열 상태 관리 예제
+│   └── UserForm.tsx    # 객체 상태 관리 예제
+├── App.tsx
+└── main.tsx
+```
+
+## 예제 코드
+```tsx
+// Counter.tsx
+import { useState } from 'react';
+
+export const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </div>
+  );
+};
+```
+
+## 학습 포인트
+1. 상태 갱신의 비동기성
+2. 이전 상태를 기반로 한 상태 갱신
+3. 객체와 배열의 불변성 유지
+4. TypeScript와 함께 사용하는 useState
 
 ## 프로젝트 생성 방법
 
@@ -31,24 +82,6 @@ npm install
 # 개발 서버 실행
 npm run dev
 ```
-
-## 학습 내용
-
-- useState 훅의 기본 사용법
-- 상태 업데이트 방법
-- 함수형 업데이트
-- 여러 상태 관리
-- 상태 초기화
-
-## 주요 파일 구조
-
-- `src/App.tsx`: 메인 애플리케이션 컴포넌트
-- `src/components/`: 예제 컴포넌트들
-- `src/main.tsx`: 애플리케이션 진입점
-
-## 실행 방법
-
-개발 서버가 실행되면 기본적으로 http://localhost:5173 에서 애플리케이션을 확인할 수 있습니다.
 
 ## 추가 학습 자료
 

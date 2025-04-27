@@ -1,78 +1,110 @@
-# React와 Next.js 학습 예제
+# Next.js 학습 프로젝트
 
-이 저장소는 React와 Next.js의 기본 개념부터 고급 기능까지 단계별로 학습할 수 있는 예제들을 포함하고 있습니다.
+## 프로젝트 개요
 
-## 프로젝트 생성 가이드
+이 프로젝트는 Next.js와 React를 활용한 웹 개발을 단계별로 학습할 수 있도록 구성된 튜토리얼 프로젝트입니다.
 
-### React + TypeScript 프로젝트 생성 (Vite 사용)
+## 학습 과정
 
-새로운 React + TypeScript 프로젝트를 생성하려면 다음 명령어를 사용하세요:
+1. **React 기초**
+
+   - 기본 컴포넌트 구조
+   - TypeScript 활용
+
+2. **JSX와 Props**
+
+   - JSX 문법
+   - Props 전달
+   - 조건부 렌더링
+
+3. **useState Hook**
+
+   - 상태 관리
+   - 상태 업데이트
+   - 복잡한 상태 처리
+
+4. **useEffect Hook**
+
+   - 사이드 흴펙트
+   - 라이프사이클
+   - 의존성 관리
+
+5. **useRef Hook**
+
+   - DOM 조작
+   - 값 유지
+   - 포커스 관리
+
+6. **useContext Hook**
+
+   - 글로벌 상태 관리
+   - 테마 관리
+   - 컨텍스트 공유
+
+7. **useReducer Hook**
+
+   - 복잡한 상태 관리
+   - 리듀서 패턴
+   - 액션 처리
+
+8. **Next.js 기초**
+
+   - App Router
+   - 페이지 라우팅
+   - 레이아웃
+
+9. **Next.js 데이터 페칭**
+
+   - Server/Client Components
+   - 정적/동적 데이터 페칭
+   - 캐싱 전략
+
+10. **Next.js 인증과 미들웨어**
+
+    - NextAuth.js
+    - 미들웨어 구현
+    - 권한 관리
+
+11. **Next.js 폼과 상태 관리**
+    - React Hook Form
+    - Zod 유효성 검사
+    - 서버 액션
+
+## 기술 스택
+
+- Next.js 14
+- React 18
+- TypeScript
+- React Hook Form
+- NextAuth.js
+- Zod
+- Tailwind CSS
+
+## 시작하기
 
 ```bash
-# 기본 생성
-npm create vite@latest my-app -- --template react-ts
+# 프로젝트 클론
+git clone [repository-url]
+cd nextjs
 
-# 생성 후 의존성 설치 및 실행
-cd my-app
+# 각 프로젝트로 이동하여 실행
+cd 01_react_basics  # 예시
 npm install
 npm run dev
 ```
 
-### Next.js + TypeScript 프로젝트 생성
+## 기여하기
 
-새로운 Next.js + TypeScript 프로젝트를 생성하려면 다음 명령어를 사용하세요:
+1. 프로젝트 포크
+2. 브랜치 생성
+3. 변경사항 반영
+4. Pull Request 제출
 
-```bash
-# App Router를 사용하는 Next.js 프로젝트 생성
-npx create-next-app@latest my-app --typescript --tailwind --eslint
+## 라이센스
 
-# 생성 후 실행
-cd my-app
-npm run dev
-```
+MIT License
 
-## 디렉토리 구조
+## 연락처
 
-- `01_react_basics`: React 기초 개념 (컴포넌트, JSX)
-- `02_jsx_and_props`: JSX 문법과 Props 활용
-- `03_useState`: useState 훅 활용
-- `04_useEffect`: useEffect 훅과 생명주기
-- `05_component_structure`: 컴포넌트 구조화와 설계
-- `06_useRef`: useRef 훅 활용
-- `07_useContext`: Context API와 상태 관리
-- `08_useReducer`: useReducer를 통한 복잡한 상태 관리
-- `09_custom_hook`: 사용자 정의 훅 만들기
-- `10_nextjs_app_router_setup`: Next.js App Router 설정
-- `11_nextjs_app_router_basic`: App Router 기본 기능
-- `12_nextjs_app_router_nested`: 중첩 라우팅
-- `13_nextjs_app_router_api`: API 라우트 활용
-- `14_nextjs_app_router_fetching`: 데이터 페칭
-
-## 실행 방법
-
-각 예제 디렉토리에서:
-
-```bash
-# 의존성 설치
-npm install
-
-# 개발 서버 실행
-npm run dev   # Next.js 프로젝트
-npm run start # React 프로젝트
-```
-
-## 학습 순서
-
-1. React 기초 (01-09)
-   - 컴포넌트와 JSX
-   - Props와 상태 관리
-   - Hooks 활용
-   - 컴포넌트 설계
-
-2. Next.js App Router (10-14)
-   - 기본 설정
-   - 라우팅
-   - API 개발
-   - 데이터 페칭
-
-각 디렉토리의 예제는 실제 프로젝트에서 자주 사용되는 패턴과 베스트 프랙티스를 포함하고 있습니다.
+- 이메일: [your-email]
+- 깃허브: [your-github]

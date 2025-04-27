@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 인증과 미들웨어
 
-## Getting Started
+## 프로젝트 개요
+Next.js의 인증 기능과 미들웨어를 학습하는 프로젝트입니다.
 
-First, run the development server:
+## 주요 학습 내용
+- Next.js 미들웨어 구현
+- NextAuth.js를 통한 인증
+- 권한 관리
+- 보안 정책
 
+## 실행 방법
 ```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 프로젝트 구조
+```
+src/
+├── app/
+│   ├── api/
+│   │   ├── auth/       # 인증 API 라우트
+│   │   └── protected/  # 보호된 API 라우트
+│   ├── dashboard/    # 보호된 페이지
+│   └── login/        # 로그인 페이지
+├── middleware.ts    # 미들웨어 정의
+├── lib/
+│   ├── auth.ts       # 인증 관련 유틸
+│   └── session.ts    # 세션 관리
+└── types/
+    └── next-auth.d.ts # 인증 타입 정의
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 예제 코드
+```tsx
+// middleware.ts
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+export function middleware(request: NextRequest) {
+  const session = request.cookies.get('session');
 
-## Learn More
+  // 보호된 경로 처리
+  if (request.nextUrl.pathname.startsWith('/dashboard')) {
+    if (!session) {
+      return NextResponse.redirect(new URL('/login', request.url));
+    }
+  }
 
-To learn more about Next.js, take a look at the following resources:
+  // API 경로 보호
+  if (request.nextUrl.pathname.startsWith('/api/protected')) {
+    if (!session) {
+      return new NextResponse(
+        JSON.stringify({ error: 'authentication required' }),
+        { status: 401 }
+      );
+    }
+  }
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  return NextResponse.next();
+}
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+export const config = {
+  matcher: ['/dashboard/:path*', '/api/protected/:path*'],
+};
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 학습 포인트
+1. 미들웨어의 역할과 활용
+2. 인증 방식과 보안
+3. 세션 관리
+4. 권한 부여 전략
