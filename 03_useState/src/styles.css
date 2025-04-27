@@ -1,0 +1,237 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.section {
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+/* Counter 스타일 */
+.counter {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.counter-display {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.counter-controls {
+  margin-bottom: 20px;
+}
+
+.counter-controls button {
+  margin: 0 5px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.counter-controls button:hover {
+  background-color: #0056b3;
+}
+
+.step-controls {
+  margin-top: 20px;
+}
+
+.step-controls select {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+/* UserForm 스타일 */
+.user-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+.form-actions button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.preview {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.preview pre {
+  white-space: pre-wrap;
+}
+
+/* TodoList 스타일 */
+.todo-list {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.todos {
+  list-style: none;
+  padding: 0;
+}
+
+.todos li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+.todos li.completed span {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.todos li button {
+  margin-left: auto;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.todo-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.todo-stats {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* ShoppingCart 스타일 */
+.shopping-cart {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.product-list {
+  display: grid;
+  gap: 10px;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-controls button {
+  padding: 5px 10px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.discount-section {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.discount-section input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.total {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #28a745;
+}
