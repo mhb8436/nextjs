@@ -1,12 +1,10 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <div className="max-w-md w-full space-y-8 text-center">
-        <h1 className="text-4xl font-bold mb-2">
-          Next.js 인증 예제
-        </h1>
+        <h1 className="text-4xl font-bold mb-2">Next.js 인증 예제</h1>
         <p className="text-gray-600 mb-8">
           Next.js와 NextAuth.js를 사용한 인증 시스템 구현
         </p>

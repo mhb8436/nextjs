@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from "react";
 
 const FocusInput: React.FC = () => {
   // input 요소를 참조하기 위한 ref
@@ -38,16 +38,12 @@ const FocusInput: React.FC = () => {
           placeholder="이 입력란은 자동으로 포커스됩니다"
           onFocus={handleFocus}
         />
-        <button onClick={handleButtonClick}>
-          입력란 포커스
-        </button>
+        <button onClick={handleButtonClick}>입력란 포커스</button>
       </div>
-      <div className="focus-count">
-        포커스 횟수: {displayCount}회
-      </div>
+      <div className="focus-count">포커스 횟수: {displayCount}회</div>
       <p className="help-text">
-        입력란을 클릭하거나 버튼을 누를 때마다 포커스 횟수가 증가합니다.
-        이 값은 리렌더링되어도 유지됩니다!
+        입력란을 클릭하거나 버튼을 누를 때마다 포커스 횟수가 증가합니다. 이 값은
+        리렌더링되어도 유지됩니다!
       </p>
     </div>
   );
